@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+
+//img
+import Miranha from './assets/miranha.jpg'
+
+//style
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Avançando no React!</h1>
+      
+       {/*IMG na pasta public*/}
+      <div>
+      <img src="/miranha1.jpg" alt="imagem do homem aranha" />
+      </div>
+     {/*IMG na pasta assets*/}
+      <div>
+      <img src={Miranha} alt="imagem do homem aranha"/>
+      </div>
     </div>
   );
 }
