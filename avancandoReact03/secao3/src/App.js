@@ -98,10 +98,6 @@ function App() {
          {users.map((user)=>(
           <UserDetails name={user.name} age={user.age} profession={user.profession}/>
          ))}
-         
-        
-
-
         <div>
       </div>
     </div>
