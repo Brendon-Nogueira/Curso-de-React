@@ -24,6 +24,7 @@ const ListRender = () => {
           <li key={i}>{item}</li>
         ))}
       </ul>
+       {/*boa pratíca*/}
       <ul>
         {users.map((user) => (
           <li key={user.id}>
