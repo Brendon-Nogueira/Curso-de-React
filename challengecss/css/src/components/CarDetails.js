@@ -1,4 +1,4 @@
-import './CarDetails.module.css'
+import styles from './CarDetails.module.css'
 const CardDetails = () => {
 
     const cars = [
@@ -10,7 +10,7 @@ const CardDetails = () => {
   return (
     <div>
 
-      <ul className="car_list">
+      <ul className={styles.car_list}>
         {cars.map((car) => (
           <li key={car.id}> Modelo:{car.brand} -  KM: {car.km} -  Cor:{car.color}</li>
         ))}
