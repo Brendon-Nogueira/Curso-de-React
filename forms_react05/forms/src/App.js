@@ -8,7 +8,7 @@ function App() {
 
       <h1>Form React</h1>
 
-      <MyForm/>
+      <MyForm  user={{name: 'Brendon Nogueira', email: 'brendonnogueira22@gmail.com' , bio : 'sou dev', role : 'admin'}}/>
       
     </div>
   );
