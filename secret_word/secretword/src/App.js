@@ -21,17 +21,15 @@ function App() {
 
   const [gameStage, setGameStage] = useState(stages[0].name);
   const [words] = useState(wordsList)
-
   const [changeWord, setChangeWord] = useState('')
   const [changeCategory, setChangeCategory] = useState('')
   const [letters, setLetters] = useState([])
-
   const [guessedLetters, setGuessedLetters] = useState([])
   const [wrongLetters, setWrongLetters] = useState([])
   const [guesses, setGuesses] = useState(3)
   const [score, setScore] = useState(0)
 
-  const changeWordAndCategory = () =>{
+  const changeWordAndCategory = useCallback(() =>{
     //escolha aleátoria da categoria
     const categories = Object.keys(words)
     const category = categories[Math.floor(Math.random() * Object.keys(categories).length)]
@@ -42,13 +40,15 @@ function App() {
    //console.log(word)
 
    return {word, category}
-  }
+  }, [words])
  
    // funções que alteram o stage do jogo
-  const start = () =>{
-
-    // escolha de categoria e palavra chave
-   const  {category, word} = changeWordAndCategory()
+  const start = useCallback(() =>{
+    //clear
+    clearLettersStates()
+    
+   // escolha de categoria e palavra chave
+   const {category, word} = changeWordAndCategory()
    //console.log(category, word)
 
    // criando array de letras 
@@ -61,18 +61,13 @@ function App() {
    setChangeCategory(category)
    setLetters(wordLetters)
    setGameStage(stages[1].name)
-  }
-  const clearStates = ()=>{
-    setGuessedLetters([])
-    setWrongLetters([])
-  } 
-  useEffect(()=>{
-    // reset de todas as letras zerando os estados
-    clearStates()
-    if(guesses <= 0){
-      setGameStage(stages[2].name)
-    }
-  }, [guesses])
+  }, [changeWordAndCategory])
+
+  const clearLettersStates = () => {
+    setGuessedLetters([]);
+    setWrongLetters([]);
+  };
+  
   const retryAgain = () =>{
     setScore(0);
     setGuesses(3);
@@ -105,6 +100,31 @@ function App() {
       setGuesses((actualGuesses) => actualGuesses - 1);
     }
   }
+  //verifica se as chances acabaram
+  useEffect(()=>{
+    // reset de todas as letras zerando os estados
+    clearLettersStates()
+    if(guesses <= 0){
+      setGameStage(stages[2].name)
+    }
+  }, [guesses])
+
+  //verifica a wincon
+  useEffect(() => {
+    const uniqueLetters = [...new Set(letters)];
+
+    console.log(uniqueLetters);
+    console.log(guessedLetters);
+
+    // win condition
+    if (guessedLetters.length === uniqueLetters.length) {
+      // add score
+      setScore((actualScore) => (actualScore += 100));
+
+      // restart game with new word
+      start();
+    }
+  }, [guessedLetters, letters, start]);
   //console.log(guessedLetters)
   //console.log(wrongLetters)
   //console.log(words)
@@ -119,7 +139,7 @@ function App() {
       wrongLetters={wrongLetters} 
       guesses={guesses} 
       score={score} />}
-      {gameStage === 'end' &&  <GameOver retryAgain={retryAgain}/>}
+      {gameStage === 'end' &&  <GameOver retryAgain={retryAgain} score={score}/>}
       
     </div>
   );
