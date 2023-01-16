@@ -2,7 +2,7 @@ import './StartScreen.css'
 const StartScreen = ({start}) => {
   return (
     <div className="start">
-        <h1>Secret Word</h1>
+        <img src="./Secretwordsvg.png" alt="secretword" />
         <button onClick={start}>Play</button>
     </div>
   )

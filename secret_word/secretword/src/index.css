@@ -3,6 +3,13 @@ body {
   height: 100%;
 }
 
+.start, img{
+  width: 60%;
+  align-items: center;
+  margin: auto ;
+  display: block;
+}
+
 body {
   font-family: Helvetica;
   margin: 0;
