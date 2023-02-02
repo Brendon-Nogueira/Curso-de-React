@@ -10,7 +10,11 @@ import { useFetch } from './hooks/useFetch';
 const url = `http://localhost:3000/products`
 
 function App() {
-
+  
+  //desafio
+  const handleDelete = (id)=>{
+    httpConfig(id,'DELETE')
+  }
   const [products, setProducts] = useState([])
   // resgatando os dados do arquivo db.json
 
@@ -18,7 +22,7 @@ function App() {
   const [price, setPrice] = useState('')
 
   // utlizando o custom hook
-  const {data : items, httpConfig, loading} = useFetch(url)
+  const {data : items, httpConfig, loading, error} = useFetch(url)
   
  /* useEffect(()=>{
     async function fetchData(){
@@ -66,10 +70,14 @@ function App() {
      <h1>Lista de Produtos</h1>
      {/* loading dos dados*/}
      {loading && <p>Carregando o produto cadastrado no sistema...</p> }
-     {!loading && (
+     {error && <p>{error}</p> }
+     {!error && (
          <ul>
          {items && items.map((products) => (
-           <li key={products.id}>{products.name} - R$: {products.price}</li>
+           <li key={products.id}>{products.name} - R$: {products.price}
+           <button onClick={()=> handleDelete(products.id)} >Remove</button>
+           </li>
+           
          ))}
         </ul>
       )}
@@ -85,7 +93,9 @@ function App() {
           Price:
           <input type="number" value={price} name="price" onChange={(e)=>{ setPrice(e.target.value)}} />
         </label>
-        <input type="submit" value="save"/>
+         {/* loading no post*/}
+       {loading && <input type="submit" disabled value="Await"/>}
+       {!loading && <input type="submit" value="Save"/>}
       </form>
 
      </div>

@@ -1,11 +1,6 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Camisa",
-      "price": 59.9
-    },
-    {
       "id": 2,
       "name": "Calça vermelha",
       "price": 90
@@ -59,21 +54,6 @@
       "name": "Camiseta Nike x Jordan",
       "price": "250",
       "id": 12
-    },
-    {
-      "name": "Camiseta Diamond",
-      "price": "120",
-      "id": 13
-    },
-    {
-      "name": "Camiseta Diamond",
-      "price": "120",
-      "id": 14
-    },
-    {
-      "name": "Camiseta Diamond",
-      "price": "120",
-      "id": 15
     }
   ]
 }
