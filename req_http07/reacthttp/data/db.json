@@ -24,6 +24,56 @@
       "name": "Tênis Nike Air Jordan - mid low",
       "price": "900",
       "id": 5
+    },
+    {
+      "name": "Tênis Nike x Travis Scott",
+      "price": "5000",
+      "id": 6
+    },
+    {
+      "name": "Camiseta Burburry",
+      "price": "100",
+      "id": 7
+    },
+    {
+      "name": "Tênis Nike SB",
+      "price": "400",
+      "id": 8
+    },
+    {
+      "name": "Camiseta Palace",
+      "price": "700",
+      "id": 9
+    },
+    {
+      "name": "Calça Zara",
+      "price": "200",
+      "id": 10
+    },
+    {
+      "name": "Camiseta Nike x Jordan",
+      "price": "250",
+      "id": 11
+    },
+    {
+      "name": "Camiseta Nike x Jordan",
+      "price": "250",
+      "id": 12
+    },
+    {
+      "name": "Camiseta Diamond",
+      "price": "120",
+      "id": 13
+    },
+    {
+      "name": "Camiseta Diamond",
+      "price": "120",
+      "id": 14
+    },
+    {
+      "name": "Camiseta Diamond",
+      "price": "120",
+      "id": 15
     }
   ]
 }
