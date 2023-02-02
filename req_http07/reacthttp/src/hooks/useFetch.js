@@ -28,15 +28,15 @@ export const useFetch = (url) => {
         })
 
         setMethod(method)
-       } else if (method === "DELETE") {
+       } else if (method === 'DELETE') {
         setConfig({
-          method: "DELETE",
+          method: 'DELETE',
           headers: {
-            "Content-Type": "application/json",
+            'Content-type' : 'application/json',
           },
         });
   
-        setMethod("DELETE");
+        setMethod('DELETE');
         setItemId(data);
       }
     }
